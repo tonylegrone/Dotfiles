@@ -6,6 +6,7 @@ default:
 
 stow:
 	stow git
+	stow karabiner
 	stow nvim
 	stow tmux
 	stow zsh
