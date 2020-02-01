@@ -1,0 +1,83 @@
+{
+  "title": "Custom mods",
+  "rules": [
+    {
+      "description": "Change left_shift to left_shift+9.",
+      "manipulators": [
+        {
+          "from": {
+            "key_code": "left_shift",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "parameters": {
+            "basic": {
+              "to_if_alone_timeout_milliseconds": 300
+            }
+          },
+          "to": [
+            {
+              "key_code": "left_shift",
+              "modifiers": {
+                "optional": [
+                  "any"
+                ]
+              }
+            }
+          ],
+          "to_if_alone": [
+            {
+              "key_code": "9",
+              "modifiers": [
+                "left_shift"
+              ]
+            }
+          ],
+          "type": "basic"
+        }
+      ]
+    },
+    {
+      "description": "Change right_shift to right_shift+0.",
+      "manipulators": [
+        {
+          "from": {
+            "key_code": "right_shift",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "parameters": {
+            "basic": {
+              "to_if_alone_timeout_milliseconds": 300
+            }
+          },
+          "to": [
+            {
+              "key_code": "right_shift",
+              "modifiers": {
+                "optional": [
+                  "any"
+                ]
+              }
+            }
+          ],
+          "to_if_alone": [
+            {
+              "key_code": "0",
+              "modifiers": [
+                "right_shift"
+              ]
+            }
+          ],
+          "type": "basic"
+        }
+      ]
+    }
+  ]
+}
