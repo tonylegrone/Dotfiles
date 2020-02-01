@@ -56,7 +56,7 @@ filetype plugin indent on
 " Color
 set termguicolors
 set background=dark
-colorscheme base16-default
+colorscheme base16-default-dark
 syntax on
 
 " Search
