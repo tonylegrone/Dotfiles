@@ -1,0 +1,51 @@
+[user]
+	name = Tony Legrone
+	email = tony@tonylegrone.com
+[github]
+  user = tonylegrone
+[color]
+	ui = true
+[color "status"]
+	added = green
+	changed = yellow
+	untracked = red
+[commit]
+  verbose = true
+[core]
+	excludesfile = ~/.cvsignore
+	editor = nvim
+[credential]
+  helper = osxkeychain
+[branch]
+	autosetuprebase = always
+[pull]
+	rebase = true
+[push]
+	default = simple
+[alias]
+	st = status
+	co = checkout
+	aa = add --all
+	fa = fetch --all
+	fap = fetch --all --prune
+	ff = merge --ff-only
+	b = branch
+	ci = commit -v
+	cp = commit -vp
+	cpa = commit -vp --amend
+	amend = commit -v --amend
+	di = diff
+	dc = diff --cached
+	dh1 = diff HEAD~1
+	dn = diff --name-only
+	po = push origin
+	pom = push origin master
+	pu = push upstream
+	pum = push upstream master
+	h = log --pretty='tformat:%C(auto,yellow)%h%C(auto,reset) %C(auto,green)(%ar)%C(auto,reset) %C(auto,blue)<%an>%C(auto,reset) %C(auto,red)%d%C(auto,reset) %s' -1
+	head = log --pretty='tformat:%C(auto,yellow)%h%C(auto,reset) %C(auto,green)(%ar)%C(auto,reset) %C(auto,blue)<%an>%C(auto,reset) %C(auto,red)%d%C(auto,reset) %s' -1
+	hp = show --patch --pretty='tformat:%C(auto,yellow)%h%C(auto,reset) %C(auto,green)(%ar)%C(auto,reset) %C(auto,blue)<%an>%C(auto,reset) %C(auto,red)%d%C(auto,reset) %s'
+	l = log --graph --pretty='tformat:%C(auto,yellow)%h%C(auto,reset) %C(auto,green)(%ar)%C(auto,reset) %C(auto,blue)<%an>%C(auto,reset) %C(auto,red)%d%C(auto,reset) %s'
+	la = log --graph --all --pretty='tformat:%C(auto,yellow)%h%C(auto,reset) %C(auto,green)(%ar)%C(auto,reset) %C(auto,blue)<%an>%C(auto,reset) %C(auto,red)%d%C(auto,reset) %s'
+	r = log --graph --pretty='tformat:%C(auto,yellow)%h%C(auto,reset) %C(auto,green)(%ar)%C(auto,reset) %C(auto,blue)<%an>%C(auto,reset) %C(auto,red)%d%C(auto,reset) %s' -20
+	ra = log --graph --all --pretty='tformat:%C(auto,yellow)%h%C(auto,reset) %C(auto,green)(%ar)%C(auto,reset) %C(auto,blue)<%an>%C(auto,reset) %C(auto,red)%d%C(auto,reset) %s' -20
