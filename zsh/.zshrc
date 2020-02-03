@@ -29,6 +29,7 @@ alias la="gls -Al"
 alias lt='gls -lhart'
 alias ll="gls -lsvAt"
 alias git="hub"
+alias vim="nvim"
 
 
 # prompt
