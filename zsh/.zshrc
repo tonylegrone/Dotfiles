@@ -71,6 +71,7 @@ RPROMPT='%{${_lineup}%}$(check_last_exit_code)%{${_linedown}%}'
 # enable autocompletion
 autoload -U compinit; compinit
 zstyle ':completion:*' menu select
+zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
 setopt completealiases
 
 
