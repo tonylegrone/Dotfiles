@@ -89,3 +89,6 @@ export FZF_DEFAULT_OPTS='--color bw'
 
 # fasd
 eval "$(fasd --init auto)"
+
+# add homebrew sbin to $PATH
+export PATH="/usr/local/sbin:$PATH"
