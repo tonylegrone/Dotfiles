@@ -145,3 +145,12 @@ eval "$(fasd --init auto)"
 
 # add homebrew sbin to $PATH
 export PATH="/usr/local/sbin:$PATH"
+
+# fancy handle long rg results
+rg() {
+  if [ -t 1 ]; then
+    command rg -p "$@" | less -RMFXK
+  else
+    command rg "$@"
+  fi
+}
