@@ -31,19 +31,72 @@ alias ll="gls -lsvAt"
 alias git="hub"
 alias vim="nvim"
 
+alias server-dev="ssh tlegrone@microfit.onyxlight.net"
+alias server-prod="ssh chronicle@chroniclews1.onyxlight.net"
+alias server-loc="ssh mfgserver@192.168.20.100"
+alias server-remote="ssh mfgserver@jenkins.chroniclestudio.com"
+alias server-rc="ssh royalcup@rccws1.onyxlight.net"
+alias server-smeraglia="ssh tlegrone@skws1.onyxlight.net"
 
 # prompt
 setopt prompt_subst
 autoload -U colors && colors
 autoload -U promptinit; promptinit
-autoload -Uz vcs_info
-zstyle ':vcs_info:*' enable git svn
-zstyle ':vcs_info:*' check-for-changes true
-zstyle ':vcs_info:git*' formats "on %{$fg[magenta]%}%b%{$reset_color%}%a%m%u%c"
-zstyle ':vcs_info:*' stagedstr " %{$fg[green]%}●%{$reset_color%}"
-zstyle ':vcs_info:*' unstagedstr " %{$fg[red]%}✚%{$reset_color%}"
-precmd() {
-  vcs_info
+
+function git_prompt_info() {
+  local g="$(git rev-parse --git-dir 2>/dev/null)"
+  if [ -n "$g" ]; then
+    local r
+    local b
+    local d
+    local s
+    # Rebasing
+    if [ -d "$g/rebase-apply" ] ; then
+      if test -f "$g/rebase-apply/rebasing" ; then
+        r="|REBASE"
+      fi
+      b="$(git symbolic-ref HEAD 2>/dev/null)"
+    # Interactive rebase
+    elif [ -f "$g/rebase-merge/interactive" ] ; then
+      r="|REBASE-i"
+      b="$(cat "$g/rebase-merge/head-name")"
+    # Merging
+    elif [ -f "$g/MERGE_HEAD" ] ; then
+      r="|MERGING"
+      b="$(git symbolic-ref HEAD 2>/dev/null)"
+    else
+      if [ -f "$g/BISECT_LOG" ] ; then
+        r="|BISECTING"
+      fi
+      if ! b="$(git symbolic-ref HEAD 2>/dev/null)" ; then
+        if ! b="$(git describe --exact-match HEAD 2>/dev/null)" ; then
+          b="$(cut -c1-7 "$g/HEAD")..."
+        fi
+      fi
+    fi
+
+    # Dirty Branch
+    local newfile='?? '
+    if [ -n "$ZSH_VERSION" ]; then
+      newfile='\?\? '
+    fi
+
+    if [ -n "${1-}" ]; then
+      d=''
+      s=$(git status --porcelain 2> /dev/null)
+      [[ $s =~ "$newfile" ]] && d+="+"
+      [[ $s =~ "M " ]] && d+="*"
+      [[ $s =~ "D " ]] && d+="-"
+      printf "$1" "${b##refs/heads/}${r}${d}"
+    else
+      d=''
+      s=$(git status --porcelain 2> /dev/null)
+      [[ $s =~ "$newfile" ]] && d+="%{$fg[green]%} ⊕%{$reset_color%}"
+      [[ $s =~ "M " ]] && d+="%{$fg[yellow]%} ⊙%{$reset_color%}"
+      [[ $s =~ "D " ]] && d+="%{$fg[red]%} ⊝%{$reset_color%}"
+      printf "%s " "%{$fg[magenta]%}${b##refs/heads/}%{$reset_color%}%{$fg[yellow]%}${r}%{$reset_color%}${d}"
+    fi
+  fi
 }
 
 # highlights the timestamp on error
@@ -63,7 +116,7 @@ function check_last_exit_code() {
 _newline=$'\n'
 _lineup=$'\e[1A'
 _linedown=$'\e[1B'
-PROMPT='%{$fg[blue]%}%2/%{$reset_color%} ${vcs_info_msg_0_}${_newline}❯ '
+PROMPT='%{$fg[blue]%}%2/%{$reset_color%} $(git_prompt_info)${_newline}❯ '
 
 RPROMPT='%{${_lineup}%}$(check_last_exit_code)%{${_linedown}%}'
 
