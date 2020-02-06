@@ -54,6 +54,9 @@ filetype plugin indent on
 " Options
 "=============================================
 
+" don't alter the terminal cursor
+set guicursor=
+
 " Color
 set termguicolors
 set background=dark
