@@ -1,0 +1,24 @@
+#!/bin/bash
+# -polka-
+
+# this is for setting up a workspace in tmux
+
+if [ $1 ]
+then
+  TARGET_DIR=$(fasd -d $1)
+else
+  TARGET_DIR=$(pwd)
+fi
+
+if [ $2 ]
+then
+  # Use custom target name if provided
+  TARGET_NAME=$2
+else
+  # Fall back on target name generated from $TARGET_DIR
+  TARGET_NAME=$(basename "$TARGET_DIR" | tr "." "-")
+fi
+
+TMUX=
+tmux new -d -s "$TARGET_NAME" -c "$TARGET_DIR"
+tmux switchc -t "$TARGET_NAME"

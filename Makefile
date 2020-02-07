@@ -9,6 +9,7 @@ stow:
 	stow karabiner
 	stow nvim
 	stow tmux
+	stow tspace
 	stow zsh
 
 install:

@@ -144,7 +144,7 @@ export FZF_DEFAULT_OPTS='--color bw'
 eval "$(fasd --init auto)"
 
 # add homebrew sbin to $PATH
-export PATH="/usr/local/sbin:$PATH"
+export PATH="$HOME/bin:/usr/local/sbin:$PATH"
 
 # fancy handle long rg results
 rg() {
