@@ -5,7 +5,7 @@ default:
 	make stow
 
 stow:
-	stow git
+	stow --dotfiles git
 	stow karabiner
 	stow nvim
 	stow tmux
