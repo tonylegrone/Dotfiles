@@ -5,6 +5,7 @@ default:
 	make stow
 
 stow:
+	stow fish
 	stow --dotfiles git
 	stow karabiner
 	stow nvim
