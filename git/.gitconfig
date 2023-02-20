@@ -30,6 +30,8 @@
 	fap = fetch --all --prune
 	ff = merge --ff-only
 	b = branch
+	ba = branch -a
+	br = branch -r
 	ci = commit -v
 	cp = commit -vp
 	cpa = commit -vp --amend
