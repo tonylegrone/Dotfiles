@@ -1,6 +1,7 @@
 alias git="hub"
 alias vim="nvim"
 
+alias sail="bash vendor/bin/sail"
 alias server-dev="ssh tlegrone@microfit.onyxlight.net"
 alias server-prod="ssh chronicle@chroniclews1.onyxlight.net"
 alias server-loc="ssh mfgserver@192.168.20.100"
