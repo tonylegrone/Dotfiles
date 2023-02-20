@@ -51,3 +51,5 @@
 	la = log --graph --all --pretty='tformat:%C(auto,yellow)%h%C(auto,reset) %C(auto,green)(%ar)%C(auto,reset) %C(auto,blue)<%an>%C(auto,reset) %C(auto,red)%d%C(auto,reset) %s'
 	r = log --graph --pretty='tformat:%C(auto,yellow)%h%C(auto,reset) %C(auto,green)(%ar)%C(auto,reset) %C(auto,blue)<%an>%C(auto,reset) %C(auto,red)%d%C(auto,reset) %s' -20
 	ra = log --graph --all --pretty='tformat:%C(auto,yellow)%h%C(auto,reset) %C(auto,green)(%ar)%C(auto,reset) %C(auto,blue)<%an>%C(auto,reset) %C(auto,red)%d%C(auto,reset) %s' -20
+[init]
+	defaultBranch = main
