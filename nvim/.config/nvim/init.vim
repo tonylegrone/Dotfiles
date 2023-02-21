@@ -3,6 +3,7 @@ call plug#begin('~/.config/nvim/bundle')
 
 Plug 'airblade/vim-gitgutter'
 Plug 'bling/vim-airline'
+Plug 'cespare/vim-toml', { 'branch': 'main' }
 Plug 'chr4/nginx.vim'
 Plug 'chriskempson/base16-vim'
 Plug 'cohama/lexima.vim'
