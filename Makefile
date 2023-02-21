@@ -9,6 +9,7 @@ stow:
 	stow --dotfiles git
 	stow karabiner
 	stow nvim
+	stow starship
 	stow tmux
 	stow tspace
 	stow zsh

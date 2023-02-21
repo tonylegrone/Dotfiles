@@ -11,4 +11,4 @@ alias server-smeraglia="ssh tlegrone@skws1.onyxlight.net"
 
 set -g fish_user_paths "/usr/local/sbin" $fish_user_paths $HOME/.composer/vendor/bin
 
-set -g pure_show_system_time true
+starship init fish | source
